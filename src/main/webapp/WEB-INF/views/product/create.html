@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create customer</title>
+</head>
+<body>
+<h1>Create product</h1>
+<p>
+    <a href="/listProduct">Customer list</a>
+</p>
+<form th:action="@{/create}" th:object="${product}" method="post">
+    <table>
+        <tr>
+            <td>name:</td>
+            <td><input type="text" th:field="*{ten}"/></td>
+        </tr>
+        <tr>
+            <td>price</td>
+            <td><input type="text" th:field="*{gia}"/></td>
+        </tr>
+        <tr>
+            <td>amount</td>
+            <td><input type="text" th:field="*{soluong}"/></td>
+        </tr>
+        <tr>
+            <td>date created</td>
+            <td><input type="text" th:field="*{ngaytao}"/></td>
+        </tr>
+        <tr>
+            <td>describe</td>
+            <td><input type="text" th:field="*{mota}"/></td>
+        </tr>
+        <tr>
+            <td>Province:</td>
+            <td>
+                <select th:field="*{sectors}">
+                    <option th:each="p : ${sectorss}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create customer"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
